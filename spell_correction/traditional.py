@@ -9,6 +9,7 @@ class NonWordCorrection(object):
 
     @staticmethod
     def correction(word):
+        """需要n-gram判断上下文中哪个noisy channel中的单词是最合适的"""
         pass
 
 
