@@ -113,7 +113,8 @@ class Word(object):
         return '<Word>'
 
     def is_realword(self):
-        return is_realword(self.token.lemma_)
+        """判断realword时需要根据词性还原后的结果判断"""
+        return is_realword(self.text)
 
 
 if __name__ == '__main__':
@@ -123,10 +124,13 @@ if __name__ == '__main__':
 
     In addition to, some people think English is superior than Chinese. In me opinion, though English is for great significance, but English is after all a foreign language. it is hard for people to see eye to eye. English do help us read English original works, but Chinese helps us learn a true China. Only by characters Chinese literature can send off its brilliance. Learning a country's culture, especial its classic culture, the first thing is learn its language. Because of we are Chinese, why do we give up our mother tongue and learn our owne culture through a foreign language?"""
 
-    essay = """good better best chinese"""
+    # essay = """good better best Chinese"""
     essay = make_essay(essay)
     for w in essay.iter_word():
-        print(w)
-        if w.is_realword():
-            print(w.text, w.token.lemma_)
+        # print(w.text, w.token.lemma_, w.is_realword())
+        print(w.token.prob)
+        if not w.is_realword():
+            print(w.text, w.token.lemma_, w.is_realword())
+
+
 

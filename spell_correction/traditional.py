@@ -3,28 +3,35 @@
 
 class NonWordCorrection(object):
 
-    def detection(self):
-        pass
+    @staticmethod
+    def detection(word):
+        return word.is_realword()
 
-    def correction(self):
+    @staticmethod
+    def correction(word):
         pass
 
 
 class RealWordCorrection(object):
 
-    def detection(self):
+    @staticmethod
+    def detection():
         pass
 
+    @staticmethod
     def correction(self):
         pass
 
 
-class SpellCorrection:
+class SpellCorrection(object):
     """拼写纠错"""
 
     @staticmethod
     def correction(essay):
-        pass
+        corrections = {}
+        for word in essay.iter_word():
+            if NonWordCorrection.detection(word):
+                NonWordCorrection.correction(word)
 
 
 if __name__ == '__main__':
