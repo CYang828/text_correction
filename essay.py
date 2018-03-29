@@ -5,7 +5,7 @@ from nlp import English, NLP, is_realword
 
 def make_essay(text):
     """将文本转换成文章对象"""
-    return Essay(text)
+    return Essay(unicode(text, encoding='utf8'))
 
 
 class Essay(object):

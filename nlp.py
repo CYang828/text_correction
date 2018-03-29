@@ -1,7 +1,7 @@
 # encoding:utf-8
 
 import en_core_web_sm
-import en_core_web_md
+#import en_core_web_md
 import en_core_web_lg
 
 
