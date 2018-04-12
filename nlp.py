@@ -6,7 +6,7 @@ import en_core_web_lg
 
 
 def load_model():
-    return en_core_web_sm.load()
+    return en_core_web_lg.load()
 
 
 def is_realword(word):
