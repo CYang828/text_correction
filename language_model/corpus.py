@@ -10,7 +10,7 @@ class Corpus(object):
         self.filename = filename
         self.vocab = None
         self._vocab_index = None
-        self._vocab_size = 0
+        self.vocab_size = 0
 
     @staticmethod
     def _read_sentence(sentence):
@@ -26,8 +26,8 @@ class Corpus(object):
         self.vocab = Counter(data)
         self.vocab = sorted(self.vocab.items(), key=lambda x: -x[1])
         self.vocab, _ = list(zip(*self.vocab))
-        self._vocab_size = len(self.vocab)
-        self._vocab_index = dict(zip(self.vocab, range(self._vocab_size)))
+        self.vocab_size = len(self.vocab)
+        self._vocab_index = dict(zip(self.vocab, range(self.vocab_size)))
         return self
 
     def text2index(self, filename=None, sentence=None):
@@ -45,7 +45,7 @@ class Corpus(object):
 if __name__ == '__main__':
     c = Corpus('../data/simple-examples/data/ptb.train.txt')
     c.load()
-    print c.text2index(sentence='i love you')
-    print c.index2text([68, 3248, 110])
+    print(c.text2index(sentence='i love you'))
+    print(c.index2text([68, 3248, 110]))
 
 
