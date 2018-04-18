@@ -31,6 +31,7 @@ class Corpus(object):
         return self
 
     def text2index(self, filename=None, sentence=None):
+        data = []
         if filename:
             data = Corpus._read(filename)
         elif sentence:
