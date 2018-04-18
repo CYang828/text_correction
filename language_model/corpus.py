@@ -24,7 +24,7 @@ class Corpus(object):
     def load(self):
         data = self._read(self.filename)
         self.vocab = Counter(data)
-        self.vocab = sorted(self.vocab.items(), key=lambda x: -x[1])
+        self.vocab = sorted(self.vocab.items(), key=lambda x: (-x[1], x[0]))
         self.vocab, _ = list(zip(*self.vocab))
         self.vocab_size = len(self.vocab)
         self._vocab_index = dict(zip(self.vocab, range(self.vocab_size)))
